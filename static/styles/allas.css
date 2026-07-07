@@ -295,7 +295,7 @@ td span {
         transition: transform .3s .5s, scale .3s .5s;
     }
 }
-td::after {
+td[data-points]:not([data-points=""])::after {
     position: absolute;
     visibility: hidden;
     opacity: 0;
@@ -309,7 +309,7 @@ td::after {
     transition: all .2s;
 }
 @media(hover: hover) and (pointer: fine) {
-    td:hover::after {
+    td[data-points]:not([data-points=""]):hover::after {
         opacity: 1;
         visibility: visible;
         transform: unset;

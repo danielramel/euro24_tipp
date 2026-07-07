@@ -75,7 +75,11 @@ function createTableCells(responseData) {
         const spanClone = clone.querySelector("span");
         spanClone.textContent = scoreStr;
         const tdElement = clone.querySelector("td");
-        tdElement.dataset.points = points;
+        const pointValue = Number(points);
+        if (Number.isFinite(pointValue))
+            tdElement.dataset.points = pointValue;
+        else
+            tdElement.removeAttribute("data-points");
         tdElement.addEventListener("animationend", () => {
             tdElement.style.scale = "1"; 
             tdElement.classList.remove("animation-visible");
